@@ -4,38 +4,55 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+@Table
+@Entity
 public class RendezVous {
     
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long idRdv;
 
-	private Date daterdv;
+	private Date dateRdv;
 
-	private Date heurerdv;
+	private Date heureRdv;
+	
+	//un patient peut avoir plusieurs rendez vous
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "patient_id" )
+	
+	public Patient patients;
+	
 
-	public int getId() {
-		return id;
+	public Long getIdRdv() {
+		return idRdv;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdRdv(Long idRdv) {
+		this.idRdv = idRdv;
 	}
 
-	public Date getDaterdv() {
-		return daterdv;
+	public Date getDateRdv() {
+		return dateRdv;
 	}
 
-	public void setDaterdv(Date daterdv) {
-		this.daterdv = daterdv;
+	public void setDateRdv(Date dateRdv) {
+		this.dateRdv = dateRdv;
 	}
 
-	public Date getHeurerdv() {
-		return heurerdv;
+	public Date getHeureRdv() {
+		return heureRdv;
 	}
 
-	public void setHeurerdv(Date heurerdv) {
-		this.heurerdv = heurerdv;
+	public void setHeureRdv(Date heureRdv) {
+		this.heureRdv = heureRdv;
 	}
 
+	public Patient getPatient() {
+		return patients;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patients = patient;
+	}
 }

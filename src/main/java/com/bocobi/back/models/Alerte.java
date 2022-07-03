@@ -1,49 +1,52 @@
 package com.bocobi.back.models;
 
 import javax.persistence.*;
-
+@Entity
+@Table
 public class Alerte {
     
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
 
-	private String type;
+	private Long idAlerte;
 
-    private String code;
+	private String typeAlerte;
+
+    private String codeAlerte;
     
-	private String enonce;
+	private String enonceAlerte;
 
-	public int getId() {
-		return id;
+
+	public Long getIdAlerte() {
+		return idAlerte;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdAlerte(Long idAlerte) {
+		this.idAlerte = idAlerte;
 	}
 
-	public String getType() {
-		return type;
+	public String getTypeAlerte() {
+		return typeAlerte;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setTypeAlerte(String typeAlerte) {
+		this.typeAlerte = typeAlerte;
 	}
 
-	public String getCode() {
-		return code;
+	public String getCodeAlerte() {
+		return codeAlerte;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setCodeAlerte(String codeAlerte) {
+		this.codeAlerte = codeAlerte;
 	}
 
-	public String getEnonce() {
-		return enonce;
+	public String getEnonceAlerte() {
+		return enonceAlerte;
 	}
 
-	public void setEnonce(String enonce) {
-		this.enonce = enonce;
+	public void setEnonceAlerte(String enonceAlerte) {
+		this.enonceAlerte = enonceAlerte;
 	}
 
 }

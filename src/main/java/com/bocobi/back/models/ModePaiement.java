@@ -1,29 +1,57 @@
 package com.bocobi.back.models;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Table
+@Entity
 public class ModePaiement {
-    
-    @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-
-	private String libelle;
-
-	public int getId() {
-		return id;
+	
+	@Id
+	@GeneratedValue
+	
+	private Long idPaiement;
+	
+	private String libellePaiement;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "abonnement_id" )
+	
+	private Abonnement abonnement;
+	
+	public Long getIdPaiement() {
+		return idPaiement;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdPaiement(Long idPaiement) {
+		this.idPaiement = idPaiement;
 	}
 
-	public String getLibelle() {
-		return libelle;
+	public String getLibellePaiement() {
+		return libellePaiement;
 	}
 
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
+	public void setLibellePaiement(String libellePaiement) {
+		this.libellePaiement = libellePaiement;
 	}
 
+	public Abonnement getAbonnement() {
+		return abonnement;
+	}
+
+	public void setAbonnement(Abonnement abonnement) {
+		this.abonnement = abonnement;
+	}
+
+	
+	
 }

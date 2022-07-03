@@ -1,52 +1,59 @@
 package com.bocobi.back.models;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
-
+@Entity
+@Table
 public class Conseil {
-    
     
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	
+	private Long idConseil;
 
-	private String auteur;
+	private String enonceConseil;
 
-	private String enonce;
+	private String roleConseil;
+	
+	
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "conseil")
+	private List<Ordonnance> ordonnance = new  ArrayList<>();
+	
+	
 
-	private String role;
-
-	public int getId() {
-		return id;
+	public Long getIdConseil() {
+		return idConseil;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdConseil(Long idConseil) {
+		this.idConseil = idConseil;
 	}
 
-	public String getAuteur() {
-		return auteur;
+	public String getEnonceConseil() {
+		return enonceConseil;
 	}
 
-	public void setAuteur(String auteur) {
-		this.auteur = auteur;
+	public void setEnonceConseil(String enonceConseil) {
+		this.enonceConseil = enonceConseil;
 	}
 
-	public String getEnonce() {
-		return enonce;
+	public String getRoleConseil() {
+		return roleConseil;
 	}
 
-	public void setEnonce(String enonce) {
-		this.enonce = enonce;
+	public void setRoleConseil(String roleConseil) {
+		this.roleConseil = roleConseil;
 	}
 
-	public String getRole() {
-		return role;
+	public List<Ordonnance> getOrdonnance() {
+		return ordonnance;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setOrdonnance(List<Ordonnance> ordonnance) {
+		this.ordonnance = ordonnance;
 	}
-
 }

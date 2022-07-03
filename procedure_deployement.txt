@@ -1,0 +1,42 @@
+﻿						
+							ETAPE A SUIVRE  POUR LE DEPLOYEMENT DU BACKEND
+ 
+
+	- Telechargez Xampp et installer puis lancer xampp (sur l'interface appuyer sur start ),
+
+	- Allez dans le navigateur sur la barre de recherche entrer "localhost/phpMyAdmin" pour acceder a mysql puis creer la base de donnee portant le nom "bocobi",
+
+	- Telechargez l'ide "springboot tools suit 4" puis installer,
+
+	- Copiez le dossier backend et mettre dans le "workspace de springboot tools suit 4",
+
+	- Ouvrez l'application (l'IDE), aller dans file puis import>general>projets from floder or archive puis appuyer sur next >directory,
+
+	- Cherchez dans votre workspace le nom du dossier qui porte votre projet puis selectionner sur dossier > selectionner finish pour importer le projet,
+
+	- Faite un click droit sur le projet importé dans l'IDE puis Run As>Maven install pour installer toutes les dependances du projet (utiliser une connexion internet)
+	
+	- Dans la console vous devez voir un message "BLUID SUCCESS" qui montre que les dependances ont ete bien installées
+
+	- Si tout a ete bien fait vous devez aller dans le navigateur taper "localhost/phphmyAdmin" entrer dans la base de donnée "bocobi" ,
+	
+	- Si les tables ont ete creer,nous pouvons conclu que le backend a ete bien deployé.
+
+
+									-----FIN----- 
+
+
+
+                                          		 ETAPE A SUIVRE POUR DEPLOYER LE FRONTEND
+   
+        - Installez "Nodejs" et "npm" (https://nodejs.org/en/download/) version 12
+
+	- installer angular en tapant la commande npm install -g @angular/cli@11.0.7
+
+        - Telechargez ou clonez le code source du tutoriel a partir de:
+
+	-installez les packages npm en excecutant la commande "npm install" dans le repertoire racine du projet ou se trouve le "package.json".
+
+        - Allez dans le terminal et lancer la commande"ng serve" dans le repertoire racine du projet
+
+        - Une fois terminer copier l'adresse qui s'afficher et coller dans le navigateur (http://localhost:4200)

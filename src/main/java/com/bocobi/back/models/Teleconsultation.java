@@ -4,15 +4,17 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+@Table
+@Entity
 public class Teleconsultation {
     
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+private Long idTeleconsultation;
 	
-	private Date jour;
+	private Date DateTeleconsultation;
 
-	private Date heure;
+	private Date heureTeleconsultation;
 /*
 	@OneToOne(mappedBy="teleconsultation")
 	@JoinColumn(name="idFacture")
@@ -26,28 +28,41 @@ public class Teleconsultation {
 	@JoinColumn(name="idMedecin")
 	private Medecin medecin;
     */
+	//permet de faire migrer id_abonnement dans la table teleconsultation
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "abonnement_id" )
+	
+	private Abonnement abonnement;
 
-	public int getId() {
-		return id;
+	public Long getIdTeleconsultation() {
+		return idTeleconsultation;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdTeleconsultation(Long idTeleconsultation) {
+		this.idTeleconsultation = idTeleconsultation;
 	}
 
-	public Date getJour() {
-		return jour;
+	public Date getDateTeleconsultation() {
+		return DateTeleconsultation;
 	}
 
-	public void setJour(Date jour) {
-		this.jour = jour;
+	public void setDateTeleconsultation(Date dateTeleconsultation) {
+		DateTeleconsultation = dateTeleconsultation;
 	}
 
-	public Date getHeure() {
-		return heure;
+	public Date getHeureTeleconsultation() {
+		return heureTeleconsultation;
 	}
 
-	public void setHeure(Date heure) {
-		this.heure = heure;
+	public void setHeureTeleconsultation(Date heureTeleconsultation) {
+		this.heureTeleconsultation = heureTeleconsultation;
+	}
+
+	public Abonnement getAbonnement() {
+		return abonnement;
+	}
+
+	public void setAbonnement(Abonnement abonnement) {
+		this.abonnement = abonnement;
 	}
 }

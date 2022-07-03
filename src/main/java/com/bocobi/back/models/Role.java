@@ -6,32 +6,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Table
-
 public class Role {
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	
+	private Long idRole;
+	
+	private String nameRole;
 
-	public int getId() {
-		return id;
+	public Long getIdRole() {
+		return idRole;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public void setIdRole(Long idRole) {
+		this.idRole = idRole;
 	}
-	public String getName() {
-		return name;
+
+	public String getNameRole() {
+		return nameRole;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setNameRole(String nameRole) {
+		this.nameRole = nameRole;
 	}
 
 }

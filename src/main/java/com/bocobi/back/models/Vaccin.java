@@ -1,49 +1,49 @@
 package com.bocobi.back.models;
 
 import javax.persistence.*;
-
+@Table
+@Entity
 public class Vaccin {
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+    private long idVaccin;
 
-	private String libelle;
+	private String libelleVaccin;
 
-	private String maladie;
+	private String maladieVaccin;
 	
-	private String description;
+	private String descriptionVaccin;
 
-	public int getId() {
-		return id;
+	public long getIdVaccin() {
+		return idVaccin;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdVaccin(long idVaccin) {
+		this.idVaccin = idVaccin;
 	}
 
-	public String getLibelle() {
-		return libelle;
+	public String getLibelleVaccin() {
+		return libelleVaccin;
 	}
 
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
+	public void setLibelleVaccin(String libelleVaccin) {
+		this.libelleVaccin = libelleVaccin;
 	}
 
-	public String getMaladie() {
-		return maladie;
+	public String getMaladieVaccin() {
+		return maladieVaccin;
 	}
 
-	public void setMaladie(String maladie) {
-		this.maladie = maladie;
+	public void setMaladieVaccin(String maladieVaccin) {
+		this.maladieVaccin = maladieVaccin;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getDescriptionVaccin() {
+		return descriptionVaccin;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescriptionVaccin(String descriptionVaccin) {
+		this.descriptionVaccin = descriptionVaccin;
 	}
-
-    
+ 
 }

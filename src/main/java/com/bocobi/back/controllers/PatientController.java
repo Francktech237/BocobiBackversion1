@@ -4,43 +4,47 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bocobi.back.models.User;
-import com.bocobi.back.repos.UserRepos;
+import com.bocobi.back.models.Patient;
+import com.bocobi.back.services.PatientService;
 
 
 
+@RequestMapping("/bocobi")
 @RestController
 @CrossOrigin
 public class PatientController {
 	
 	@Autowired
-	private UserRepos patientRepos;
-	
-	@GetMapping("bocobi/patients")
-	public List<User> getPatients() {
-		return patientRepos.findAll();
-	}
-	
-	@GetMapping("bocobi/patient/{id}")
-	public User searchById(@PathVariable int id) {
-		return patientRepos.findById(id).orElse(null);
-	}	
-	
-	@PostMapping("bocobi/patient")
-	public User savePatient(@RequestBody User patient) {
-		return patientRepos.save(patient);
+	private PatientService patientService;
+
+	@GetMapping("/Patients")
+	public List<Patient> getPatient(){
+		return patientService.getpatients();
 	}
 
-	@DeleteMapping("bocobi/patient/{id}")
-	public String deletePatient(@PathVariable int id) {
-		patientRepos.deleteById(id);
-		return "Patient suprimer avec success !!"+id;
+	@GetMapping("/Patients/{idPersonne}")
+	public Patient getPatient(@PathVariable("idPersonne") Long idPersonne) {
+		return patientService.getPatients(idPersonne);
 	}	
+
+	@PostMapping("/patient")
+	public Patient createPatient(@RequestBody Patient patient) {
+		return patientService.savePatient(patient);
+	}
+	
+	@PutMapping("/updatePatient/{idPersonne}")
+	/*bluid update medicament REST API*/ 
+	public String updatePatient(@PathVariable (value = "idPersonne") Long idPersonne , 
+								   @RequestBody Patient patient ) {
+		
+		return patientService.updatePatient(idPersonne, patient);
+	}
 }

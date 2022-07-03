@@ -2,27 +2,30 @@ package com.bocobi.back.models;
 
 import javax.persistence.*;
 
+@Entity
+@Table
 public class CarnetElectronique {
 
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long idCarnet;
 
 	private Double taille;
 
     private Double poids;
     
 	private String groupeSanguin;
+	
     private Integer poulsParMinute;
 
     private Integer temperature;
 
-	public int getId() {
-		return id;
+	public Long getIdCarnet() {
+		return idCarnet;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdCarnet(Long idCarnet) {
+		this.idCarnet = idCarnet;
 	}
 
 	public Double getTaille() {
@@ -64,8 +67,4 @@ public class CarnetElectronique {
 	public void setTemperature(Integer temperature) {
 		this.temperature = temperature;
 	}
-    
-
-
-
 }

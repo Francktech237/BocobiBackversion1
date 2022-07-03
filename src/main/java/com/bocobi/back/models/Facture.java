@@ -2,31 +2,34 @@ package com.bocobi.back.models;
 
 import javax.persistence.*;
 
+@Table
+@Entity
 public class Facture {
     
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long idFacture;
 
-	private String reference;
+	private String referenceFacture;
 	
 	@OneToOne
 	private Teleconsultation teleconsultation;
 
-	public int getId() {
-		return id;
+	
+	public Long getIdFacture() {
+		return idFacture;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdFacture(Long idFacture) {
+		this.idFacture = idFacture;
 	}
 
-	public String getReference() {
-		return reference;
+	public String getReferenceFacture() {
+		return referenceFacture;
 	}
 
-	public void setReference(String reference) {
-		this.reference = reference;
+	public void setReferenceFacture(String referenceFacture) {
+		this.referenceFacture = referenceFacture;
 	}
 
 	public Teleconsultation getTeleconsultation() {
